@@ -1,0 +1,189 @@
+
+
+% Table of contents formatting
+\renewcommand{\contentsname}{\sffamily\Large\bfseries Índice}
+\renewcommand{\listfigurename}{\sffamily\Large\bfseries Lista de Figuras}
+\renewcommand{\listtablename}{\sffamily\Large\bfseries Lista de Tabelas}
+\setcounter{tocdepth}{3}
+\usepackage{indentfirst}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{secdot}%Secções com pontos
+\usepackage{graphicx}
+
+
+% Set margins
+\usepackage[top=3cm, bottom=2cm, inner=3cm, outer=2.5cm]{geometry}
+% \setlength\parindent{0.4in} % indent at start of paragraphs (set to 0.3?)
+
+% Add space between pararaphs
+% http://texblog.org/2012/11/07/correctly-typesetting-paragraphs-in-latex/
+% \usepackage{parskip}
+% \setlength{\parskip}{\baselineskip}
+
+% Headers and page numbering
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+% Following package is used to add background image to front page
+\usepackage{wallpaper}
+
+% Table package
+\usepackage{ctable}% http://ctan.org/pkg/ctable
+
+% Deal with 'LaTeX Error: Too many unprocessed floats.'
+\usepackage{morefloats}
+% or use \extrafloats{100}
+% add some \clearpage
+
+% % Chapter header
+ \usepackage{titlesec, blindtext, color}
+ \definecolor{gray89}{rgb}{89,89,89}
+% \newcommand{\hsp}{\hspace{15.2pt}}
+% \titleformat{\chapter}{\Huge\bfseries\sffamily}{\thechapter\textcolor{gray89}{|}}{0pt}{\Huge\bfseries}
+
+% % Fonts and typesetting
+ \setmainfont{Cambria}
+ \setsansfont{Trebuchet MS}
+
+% FONTS
+\usepackage{xunicode}
+\usepackage{xltxtra}
+\defaultfontfeatures{Mapping=tex-text} % converts LaTeX specials (``quotes'' --- dashes etc.) to unicode
+% \setromanfont[Scale=1.01,Ligatures={Common},Numbers={OldStyle}]{Palatino}
+% \setromanfont[Scale=1.01,Ligatures={Common},Numbers={OldStyle}]{Adobe Caslon Pro}
+%Following line controls size of code chunks
+% \setmonofont[Scale=0.9]{Monaco}
+%Following line controls size of figure legends
+% \setsansfont[Scale=1.2]{Optima Regular}
+
+%Attempt to set math size
+%First size must match the text size in the document or command will not work
+%\DeclareMathSizes{display size}{text size}{script size}{scriptscript size}.
+\DeclareMathSizes{12}{13}{7}{7}
+
+% ---- CUSTOM AMPERSAND
+% \newcommand{\amper}{{\fontspec[Scale=.95]{Adobe Caslon Pro}\selectfont\itshape\&}}
+
+% HEADINGS
+
+\renewcommand{\partname}{Parte}
+\titleformat{\part}[display] {\Huge\sffamily\bfseries}{\thispagestyle{fancy}\partname~\thepart}{1em}{}
+\titleclass{\chapter}{straight} % no page break
+\titleformat{\chapter}{\sffamily\LARGE\bfseries}{\thechapter}{1em}{}
+%\titleformat*{\chapter}{\fontsize{16}{1em}\sffamily\bfseries}{\thechapter}{1em}{}
+\titleformat*{\section}{\fontsize{14}{1em}\sffamily\bfseries}
+\titleformat*{\subsection}{\fontsize{12}{1em}\sffamily\bfseries}
+
+\titlespacing*{\chapter} {0pt}{0pt}{2.3ex plus .2ex}
+\titlespacing*{\section} {0pt}{3.25ex plus 1ex minus .2ex}{6pt plus .2ex}
+\titlespacing*{\subsection} {0pt}{3.25ex plus 1ex minus .2ex}{6pt plus .2ex}
+\setlength{\abovecaptionskip}{6pt plus 0pt minus 2pt}
+\setlength{\belowcaptionskip}{12pt plus 0pt minus 2pt}
+% \sectionfont{\rmfamily\mdseries\Large}
+% \subsectionfont{\rmfamily\mdseries\scshape\normalsize}
+% \subsubsectionfont{\rmfamily\bfseries\upshape\normalsize}
+
+\setlength{\cftaftertoctitleskip}{6pt}
+\setlength{\cftbeforetoctitleskip}{0pt}
+\setlength{\cftafterloftitleskip}{6pt}
+\setlength{\cftbeforeloftitleskip}{0pt}
+\setlength{\cftafterlottitleskip}{6pt}
+\setlength{\cftbeforelottitleskip}{0pt}
+
+\renewcommand{\cftchapfont}{\bfseries \sffamily}
+%\renewcommand{\cftsecfont}{\sffamily}
+%\renewcommand{\cftsubsecfont}{\sffamily}
+
+% Set figure legends and captions to be smaller sized sans serif font
+\usepackage[font={footnotesize,sf}]{caption}
+
+\usepackage{siunitx}
+
+% Adjust spacing between lines to 1.15
+\setlength{\parindent}{6mm}%Indentação
+\linespread{1.15}%espaçamento
+\setlength{\parskip}{6pt}%fim do parágrafo
+
+% Set colour of links to black so that they don't show up when printed
+\usepackage{hyperref}
+\hypersetup{colorlinks=false, linkcolor=black}
+
+% Tables
+\usepackage{booktabs}
+\usepackage{threeparttable}
+\usepackage{array}
+\newcolumntype{x}[1]{%
+>{\centering\arraybackslash}m{#1}}%
+
+% Allow for long captions and float captions on opposite page of figures
+% \usepackage[rightFloats, CaptionBefore]{fltpage}
+
+% Don't let floats cross subsections
+% \usepackage[section,subsection]{extraplaceins}
+\setlength{\headheight}{15.2pt}%Altura do cabeçalho - reduzir apenas até 15pt
+
+\renewcommand{\headrulewidth}{0.4pt}%definir linha do cabeçalho
+\renewcommand{\footrulewidth}{0pt}%retirar linha do rodapé
+\makeatletter
+\def\headrule{{\color{gray89}\if@fancyplain\let\headrulewidth\plainheadrulewidth\fi
+\hrule\@height\headrulewidth\@width\headwidth
+\vskip-\headrulewidth}}
+\makeatother
+
+\fancyhead[LE]{\color{gray89} \fontsize{7}{1em} \textsf{Nuno João Casteleira}}%Cabeçalho par
+\fancyhead[LO]{}
+\fancyhead[RE]{}
+\fancyhead[RO]{\color{gray89} \fontsize{7}{1em} \textsf{Tese}}%cabeçalho ímpar
+\fancyfoot[C]{\fontsize{11}{1em}\sffamily \thepage}%rodapé
+
+\usepackage{etoolbox}
+\patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{}
+
+\lstdefinelanguage{swift}
+{
+  morekeywords={
+    func,if,then,else,for,in,while,do,switch,case,default,where,break,continue,fallthrough,return,
+    typealias,struct,class,enum,protocol,var,func,let,get,set,willSet,didSet,inout,init,deinit,extension,
+    subscript,prefix,operator,infix,postfix,precedence,associativity,left,right,none,convenience,dynamic,
+    final,lazy,mutating,nonmutating,optional,override,required,static,unowned,safe,weak,internal,
+    private,public,is,as,self,unsafe,dynamicType,true,false,nil,Type,Protocol,
+  },
+  morecomment=[l]{//}, % l is for line comment
+  morecomment=[s]{/*}{*/}, % s is for start and end delimiter
+  morestring=[b]" % defines that strings are enclosed in double quotes
+}
+
+\definecolor{keyword}{HTML}{BA2CA3}
+\definecolor{string}{HTML}{D12F1B}
+\definecolor{comment}{HTML}{008400}
+
+\lstset{
+  language=swift,
+  basicstyle=\small\ttfamily,
+  showstringspaces=false, % lets spaces in strings appear as real spaces
+  columns=fixed,
+  keepspaces=true,
+  keywordstyle=\color{keyword},
+  stringstyle=\color{string},
+  commentstyle=\color{comment},
+}
+
+\captionsetup[figure]{labelfont=footnotesize,labelfont=bf,font=footnotesize,textfont={normalfont}}
+\renewcommand{\thefigure}{\arabic{figure}}
+\renewcommand{\figurename}{Figura}
+
+\captionsetup[table]{labelfont=footnotesize,labelfont=bf,font=footnotesize,textfont={normalfont}}
+\renewcommand{\thetable}{\arabic{table}}
+\renewcommand{\tablename}{Tabela}
+
+\let\oldthebibliography\thebibliography
+\let\endoldthebibliography\endthebibliography
+\renewenvironment{thebibliography}[1]{
+  \begin{oldthebibliography}{#1}
+    \setlength{\itemsep}{8pt}
+    \setlength{\parskip}{6pt}
+}
+{
+  \end{oldthebibliography}
+}
