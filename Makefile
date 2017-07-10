@@ -37,6 +37,7 @@ pdf:
 	-V classoption=twoside \
 	-V documentclass:report \
 	-N \
+	-A "$(INPUTDIR)/After"/*.md \
 	--latex-engine=xelatex 
 
 tex:
@@ -55,6 +56,7 @@ tex:
 docx:
 	pandoc "$(INPUTDIR)"/*.md \
 	-o "$(OUTPUTDIR)/thesis.docx" \
+	--reference-docx="$(STYLEDIR)/reference.docx" \
 	--bibliography="$(BIBFILE)" \
 	--csl="$(STYLEDIR)/ref_format.csl" \
 	--toc
